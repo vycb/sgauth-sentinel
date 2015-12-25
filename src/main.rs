@@ -10,15 +10,11 @@ fn main() {
 		.spawn()
 		.unwrap_or_else(|e| { panic!("faioled to execute sgauth: {}", e) });
 		
-//		let ec = sgauth.wait()
-//		.unwrap_or_else(|e| { panic!("failed to wait on sgauth: {}", e) });
-//		assert!(ec.success());
-	
 	while !done {
-		 sleep(Duration::from_millis(10000));
+		 sleep(Duration::from_millis(30000));
 		 
 		let mut chping = Command::new("ping")
-		.arg( "-c 2")
+		.arg( "-c 1")
 		.arg( "google.com")
 		.spawn()
 		.unwrap_or_else(|e| { panic!("failed to execute ping: {}", e) });
@@ -40,16 +36,6 @@ fn main() {
 				},
 				Err(r) => panic!("sgauth kill problem: {}", r)
 			}
-			
-//			let mut chctl = Command::new("systemctl")
-//			.arg( "restart")
-//			.arg( "sgauth.service")
-//			.spawn()
-//			.unwrap_or_else(|e| { panic!("faioled to execute chctl: {}", e) });
-//			
-//			let ecodes = chctl.wait()
-//			.unwrap_or_else(|e| { panic!("failed to wait on chctl: {}", e) });
-//			assert!(ecodes.success());
 		}
 	}
 }

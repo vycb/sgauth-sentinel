@@ -6,3 +6,4 @@ authors = [ "vycb <vycb777@gmail.com>" ]
 
 [[bin]]
 name = "sgauths"
+
